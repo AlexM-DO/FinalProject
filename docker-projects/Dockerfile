@@ -19,14 +19,14 @@ RUN apt-get update && \
 # Cleanup old packages
     apt-get -qy autoremove && \
 # Add user alexm to the image
-    adduser --quiet alexm && \
+    adduser --quiet ubuntu && \
 # Set password for the alexm user
-    echo "alexm:alexm" | chpasswd && \
-    mkdir /home/alexm/.m2
+    echo "ubuntu:ubuntu" | chpasswd && \
+    mkdir /home/ubuntu/.m2
 
-COPY .m2/settings.xml /home/alexm/.m2/settings.xml
+COPY .m2/settings.xml /home/ubuntu/.m2/settings.xml
 
-RUN chown -R alexm:alexm /home/alexm/.m2/
+RUN chown -R ubuntu:ubuntu /home/ubuntu/.m2/
 
 # Standard SSH port
 EXPOSE 22
