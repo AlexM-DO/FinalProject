@@ -5,14 +5,22 @@
       become: yes
       apt:
         update_cache: yes
-    - name: Install Java using Ansible
+    - name: Install JDK using Ansible
       become: yes
       apt:
         name: "{{ packages }}"
         state: present
       vars:
         packages:
-           - openjdk-11-jdk
+           - default-jdk
+    - name: Install JRE using Ansible
+      become: yes
+      apt:
+        name: "{{ packages }}"
+        state: present
+      vars:
+        packages:
+           - default-jre
     - name: Install Maven using Ansible
       become: yes
       apt:
